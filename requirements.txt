@@ -1,0 +1,51 @@
+# ============================================================
+# Real-Time Speech-to-Speech Translation System
+# requirements.txt
+# ============================================================
+
+# --- Core Python utilities ---
+numpy>=1.24.0
+scipy>=1.11.0
+
+# --- Audio I/O ---
+sounddevice>=0.4.6
+soundfile>=0.12.1
+pyaudio>=0.2.13         # alternative to sounddevice
+pydub>=0.25.1           # MP3 decode (needed by gTTS output)
+
+# --- Noise suppression ---
+noisereduce>=3.0.0      # spectral subtraction (primary backend)
+# deepfilternet>=0.5.6  # DeepFilterNet (optional; uncomment to enable)
+
+# --- Voice Activity Detection ---
+torch>=2.0.0            # required by Silero VAD
+torchaudio>=2.0.0
+
+# --- ASR (Automatic Speech Recognition) ---
+faster-whisper>=1.0.0
+
+# --- Language Identification ---
+langdetect>=1.0.9
+# fasttext>=0.9.2       # optional – for fastText LID model
+
+# --- Translation ---
+transformers>=4.35.0    # MarianMT + SeamlessM4T
+sentencepiece>=0.1.99   # MarianMT tokenizer
+sacremoses>=0.1.1       # required by some MarianMT models
+
+# --- TTS ---
+gtts>=2.4.0             # Google TTS (online, free)
+pyttsx3>=2.90           # offline system TTS
+# TTS>=0.22.0           # Coqui TTS (optional; large install)
+# elevenlabs>=0.2.27    # ElevenLabs API (optional)
+
+# --- API server ---
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+websockets>=12.0
+pydantic>=2.0.0
+
+# --- Testing ---
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+httpx>=0.27.0           # async HTTP client for FastAPI testing
