@@ -56,6 +56,7 @@ receive live translation events.
 s2st-project/
 │
 ├── main.py                  # CLI entry point
+├── app_ui.py                # Streamlit web UI (run with: streamlit run app_ui.py)
 ├── config.py                # Centralised configuration (dataclasses)
 ├── requirements.txt
 ├── README.md
@@ -132,7 +133,24 @@ pip install -r requirements.txt
 > have a CUDA GPU, replace the generic `torch` wheel with the CUDA variant
 > from https://pytorch.org.
 
-### 4. Run the pipeline (terminal mode)
+### 4. Run the Streamlit UI (recommended)
+
+```bash
+streamlit run app_ui.py
+```
+
+A browser window will open automatically at http://localhost:8501.
+
+**Using the UI:**
+
+1. **Configure** – Use the sidebar to choose the target language, ASR model,
+   TTS backend, and audio settings.
+2. **Start** – Click **▶ Start** to begin listening.  Models load on first use.
+3. **Speak** – Talk into your microphone.  Each utterance is transcribed,
+   translated, and played back.  Results appear in the *Translation Feed*.
+4. **Stop** – Click **⏹ Stop** to shut down the pipeline.
+
+### 5. Run the pipeline (terminal mode)
 
 ```bash
 python main.py
@@ -152,7 +170,7 @@ translated, and played back through the speakers.
 | `--no-noise-suppression` | off | Disable denoising |
 | `--log-level DEBUG` | `INFO` | Logging verbosity |
 
-### 5. Run the API server
+### 6. Run the API server
 
 ```bash
 python main.py --api --port 8000

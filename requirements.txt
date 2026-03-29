@@ -45,6 +45,9 @@ uvicorn[standard]>=0.29.0
 websockets>=12.0
 pydantic>=2.0.0
 
+# --- Streamlit UI ---
+streamlit>=1.35.0
+
 # --- Testing ---
 pytest>=8.0.0
 pytest-asyncio>=0.23.0
