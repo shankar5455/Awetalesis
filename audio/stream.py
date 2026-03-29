@@ -30,11 +30,11 @@ logger = get_logger(__name__)
 try:
     import sounddevice as sd  # type: ignore
     _SD_AVAILABLE = True
-except ImportError:
+except (ImportError, OSError):
     _SD_AVAILABLE = False
     logger.warning(
-        "sounddevice is not installed.  MicrophoneStream will operate in "
-        "SILENT / TEST mode only."
+        "sounddevice is not available (library not installed or PortAudio not found).  "
+        "MicrophoneStream will operate in SILENT / TEST mode only."
     )
 
 
